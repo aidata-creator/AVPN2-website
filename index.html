@@ -4,77 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AICANWORK - Resource Hub</title>
-    <!-- Google Classroom Platform Script -->
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <style>
         :root {
-            /* Banner-Matched Color Palette */
-            --bg-dark: #0f1922;        /* Dark background sampled from banner edge */
-            --bg-blend: #172635;       /* Blend gradient color */
-            --card-bg: #1a2a3a;        /* Card background that sits nicely over dark bg */
-            --primary: #F1A721;        /* Warm Gold/Orange from AI CAN WORK logo */
-            --primary-hover: #D98E0D;  /* Darker Gold for hover state */
-            --text-light: #ffffff;     /* High contrast white text */
-            --text-muted: #a0aec0;     /* Muted text for descriptions */
-            --border-glow: #2a3f55;    /* Subtle card border */
+            --primary: #F1A721;
+            --primary-dark: #0D3B5C;
+            --primary-hover: #D98E0D;
+            --surface: #FFFFFF;
+            --text: #0B1D28;
+            --text-muted: #526775;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            /* Matches the dark ambient tone of the image edges */
-            background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-blend) 100%) !important;
+            background: linear-gradient(135deg, #FFF8ED 0%, #E8F1F5 50%, #DCE8EE 100%);
             background-attachment: fixed;
-            color: var(--text-light);
+            color: var(--text);
             line-height: 1.6;
         }
 
-        header {
-            background-color: rgba(15, 25, 34, 0.9);
-            color: white;
-            padding: 2.5rem 1.5rem;
-            text-align: center;
-            border-bottom: 3px solid var(--primary);
+        /* Hero Banner Container - Full Bleed */
+        .hero-banner {
+            width: 100%;
+            background: #f7a833; /* Fallback color matching left of image */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(13, 59, 92, 0.15);
         }
 
-        header h1 {
-            margin: 0 0 0.5rem 0;
-            font-size: 2.5rem;
-            color: var(--primary);
-        }
-
-        header p {
-            margin: 0;
-            font-size: 1.1rem;
-            color: var(--text-muted);
+        .hero-banner img {
+            width: 100%;
+            max-width: 1200px;
+            height: auto;
+            display: block;
         }
 
         .container {
             max-width: 900px;
-            margin: 2rem auto;
+            margin: 3rem auto;
             padding: 0 1.5rem;
-        }
-
-        /* Hero Banner Image Container */
-        .hero-image-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2rem;
-            /* Optional soft glow around the image to blend it further */
-            filter: drop-shadow(0 10px 20px rgba(241, 167, 33, 0.15));
-        }
-
-        .hero-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            display: block;
-        }
-
-        h2 {
-            color: var(--primary);
         }
 
         .grid {
@@ -85,24 +56,21 @@
         }
 
         .card {
-            background: var(--card-bg);
+            background: var(--surface);
             padding: 1.5rem;
             border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--border-glow);
-            border-top: 3px solid var(--primary);
+            box-shadow: 0 8px 16px -2px rgba(13, 59, 92, 0.08);
+            border-top: 4px solid var(--primary);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .card h3 {
             margin-top: 0;
-            color: var(--primary);
+            color: var(--primary-dark);
         }
 
-        .card p {
-            color: var(--text-muted);
-        }
-
-        /* Button Styles */
         .btn-group {
             display: flex;
             flex-direction: column;
@@ -114,7 +82,7 @@
             display: inline-block;
             text-align: center;
             background-color: var(--primary);
-            color: #0f1922;
+            color: var(--primary-dark);
             padding: 0.65rem 1rem;
             border-radius: 6px;
             text-decoration: none;
@@ -124,25 +92,25 @@
 
         .btn:hover {
             background-color: var(--primary-hover);
-            transform: translateY(-1px);
         }
 
         .btn-outline {
             background-color: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
+            color: var(--primary-dark);
+            border: 2px solid var(--primary-dark);
         }
 
         .btn-outline:hover {
-            background-color: var(--primary);
-            color: #0f1922;
+            background-color: var(--primary-dark);
+            color: white;
         }
 
         footer {
             margin-top: 4rem;
             padding: 2rem;
-            background: rgba(15, 25, 34, 0.95);
-            border-top: 1px solid var(--border-glow);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid #CBDCE4;
             text-align: center;
         }
 
@@ -157,42 +125,44 @@
 </head>
 <body>
 
-    <header>
-        <h1>AICANWORK Learning Hub</h1>
-        <p>Your central resource for guides, documentation, and class materials.</p>
-    </header>
+    <!-- Banner at top of page -->
+    <div class="hero-banner">
+        <img src="image.jpg" alt="AICANWORK Header Banner">
+    </div>
 
     <main class="container">
-        <!-- Hero Banner Image -->
-        <div class="hero-image-container">
-            <img src="image.jpg" alt="AICANWORK - AI Training Para Sa Mas Malagong Trabaho" class="hero-image">
-        </div>
-
         <h2>About This Portal</h2>
-        <p style="color: var(--text-muted);">Welcome to the official AICANWORK website. This portal is designed to provide quick access to essential tools, updates, and classroom material.</p>
+        <p>Welcome to the official AICANWORK website. This portal is designed to provide quick access to essential tools, updates, and classroom material.</p>
 
         <div class="grid">
             <div class="card">
-                <h3>📚 Project Overview</h3>
-                <p>Access key updates, modules, and journey relative to our current learning objectives.</p>
+                <div>
+                    <h3>📚 Project Overview</h3>
+                    <p>Access key updates, modules, and journey relative to our current learning objectives.</p>
+                </div>
             </div>
 
             <!-- Card: Registration & Chatbot -->
             <div class="card">
-                <h3>📝 Registration & Assistant</h3>
-                <p>Register for the program or chat with our AI assistant for quick support.</p>
+                <div>
+                    <h3>📝 Registration & Assistant</h3>
+                    <p>Register for the program via Google Form or through our Messenger assistant.</p>
+                </div>
                 <div class="btn-group">
-                    <!-- Google Form Link -->
                     <a href="https://forms.gle/XLvnSZC7r6mz8vZB7" target="_blank" class="btn">Register via Google Form</a>
-                    
-                    <!-- Direct Messenger Chatbot Link -->
-                    <a href="https://m.me/aiforjobseekers?ref=reg" target="_blank" class="btn btn-outline">Open Chatbot Assistant</a>
+                    <a href="https://m.me/aiforjobseekers?ref=reg" target="_blank" class="btn btn-outline">Register via Chatbot</a>
                 </div>
             </div>
 
+            <!-- Card: Google Classroom -->
             <div class="card">
-                <h3>📢 Classroom Integration</h3>
-                <p>Easily share materials directly into your Google Classroom stream or assignments with one click below.</p>
+                <div>
+                    <h3>📢 Classroom Integration</h3>
+                    <p>Join our official Google Classroom stream to access assignments, materials, and class announcements.</p>
+                </div>
+                <div class="btn-group">
+                    <a href="https://classroom.google.com/c/ODU1NjE1MzIzMzk1?cjc=goj7cthf" target="_blank" class="btn btn-outline">Join Google Classroom</a>
+                </div>
             </div>
         </div>
     </main>
