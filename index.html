@@ -8,32 +8,34 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <style>
         :root {
-            /* Palette sampled directly from AICANWORK banner */
+            /* Banner-Matched Color Palette */
+            --bg-dark: #0f1922;        /* Dark background sampled from banner edge */
+            --bg-blend: #172635;       /* Blend gradient color */
+            --card-bg: #1a2a3a;        /* Card background that sits nicely over dark bg */
             --primary: #F1A721;        /* Warm Gold/Orange from AI CAN WORK logo */
-            --primary-dark: #0D3B5C;   /* Deep Navy/Teal from banner text & background */
             --primary-hover: #D98E0D;  /* Darker Gold for hover state */
-            --surface: #FFFFFF;        /* Crisp card background */
-            --text: #0B1D28;           /* Dark navy for readable text */
-            --text-muted: #526775;     /* Muted teal-gray */
+            --text-light: #ffffff;     /* High contrast white text */
+            --text-muted: #a0aec0;     /* Muted text for descriptions */
+            --border-glow: #2a3f55;    /* Subtle card border */
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            /* Gradient matching the banner: Warm Amber/Cream fading into Cool Slate/Teal */
-            background: linear-gradient(135deg, #FFF8ED 0%, #E8F1F5 50%, #DCE8EE 100%);
-            background-attachment: fixed; /* Keeps background smooth on scrolling */
-            color: var(--text);
+            /* Matches the dark ambient tone of the image edges */
+            background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-blend) 100%) !important;
+            background-attachment: fixed;
+            color: var(--text-light);
             line-height: 1.6;
         }
 
         header {
-            background-color: var(--primary-dark);
+            background-color: rgba(15, 25, 34, 0.9);
             color: white;
-            padding: 3rem 1.5rem;
+            padding: 2.5rem 1.5rem;
             text-align: center;
-            border-bottom: 5px solid var(--primary);
+            border-bottom: 3px solid var(--primary);
         }
 
         header h1 {
@@ -45,8 +47,7 @@
         header p {
             margin: 0;
             font-size: 1.1rem;
-            opacity: 0.95;
-            color: #E2ECF3;
+            color: var(--text-muted);
         }
 
         .container {
@@ -55,19 +56,25 @@
             padding: 0 1.5rem;
         }
 
-        /* Hero Banner Image */
+        /* Hero Banner Image Container */
         .hero-image-container {
             width: 100%;
             display: flex;
             justify-content: center;
             margin-bottom: 2rem;
+            /* Optional soft glow around the image to blend it further */
+            filter: drop-shadow(0 10px 20px rgba(241, 167, 33, 0.15));
         }
 
         .hero-image {
             max-width: 100%;
             height: auto;
             border-radius: 12px;
-            box-shadow: 0 12px 24px -4px rgba(13, 59, 92, 0.18);
+            display: block;
+        }
+
+        h2 {
+            color: var(--primary);
         }
 
         .grid {
@@ -78,16 +85,21 @@
         }
 
         .card {
-            background: var(--surface);
+            background: var(--card-bg);
             padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 8px 16px -2px rgba(13, 59, 92, 0.08);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-glow);
             border-top: 3px solid var(--primary);
         }
 
         .card h3 {
             margin-top: 0;
-            color: var(--primary-dark);
+            color: var(--primary);
+        }
+
+        .card p {
+            color: var(--text-muted);
         }
 
         /* Button Styles */
@@ -102,11 +114,11 @@
             display: inline-block;
             text-align: center;
             background-color: var(--primary);
-            color: var(--primary-dark);
+            color: #0f1922;
             padding: 0.65rem 1rem;
             border-radius: 6px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.2s ease;
         }
 
@@ -117,21 +129,20 @@
 
         .btn-outline {
             background-color: transparent;
-            color: var(--primary-dark);
-            border: 2px solid var(--primary-dark);
+            color: var(--primary);
+            border: 2px solid var(--primary);
         }
 
         .btn-outline:hover {
-            background-color: var(--primary-dark);
-            color: white;
+            background-color: var(--primary);
+            color: #0f1922;
         }
 
         footer {
             margin-top: 4rem;
             padding: 2rem;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(8px);
-            border-top: 1px solid #CBDCE4;
+            background: rgba(15, 25, 34, 0.95);
+            border-top: 1px solid var(--border-glow);
             text-align: center;
         }
 
@@ -158,7 +169,7 @@
         </div>
 
         <h2>About This Portal</h2>
-        <p>Welcome to the official AICANWORK website. This portal is designed to provide quick access to essential tools, updates, and classroom material.</p>
+        <p style="color: var(--text-muted);">Welcome to the official AICANWORK website. This portal is designed to provide quick access to essential tools, updates, and classroom material.</p>
 
         <div class="grid">
             <div class="card">
