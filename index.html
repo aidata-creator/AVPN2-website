@@ -1,205 +1,139 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AICANWORK - Resource Hub</title>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <style>
-        :root {
-            --primary: #F1A721;            /* Warm Gold/Orange */
-            --primary-hover: #D98E0D;      /* Hover Gold */
-            --bg-dark: #0B1D28;           /* Deep dark blue sampled from banner */
-            --bg-dark-alt: #162A38;       /* Gradient secondary dark blue */
-            --card-bg: #132431;           /* Elevated card background */
-            --border-glow: #243B4D;       /* Subtle card outline */
-            --text-light: #FFFFFF;        /* Bright white text */
-            --text-muted: #A0B2C6;        /* Muted secondary text */
-        }
+<style>
+    :root {
+        --primary: #F1A721;            /* Warm Gold/Orange */
+        --primary-hover: #D98E0D;      /* Hover Gold */
+        --bg-dark: #0B1D28;           /* Deep dark blue sampled from banner */
+        --bg-dark-alt: #162A38;       /* Gradient secondary dark blue */
+        --card-bg: #132431;           /* Elevated card background */
+        --border-glow: #243B4D;       /* Subtle card outline */
+        --text-light: #FFFFFF;        /* Bright white text */
+        --text-muted: #A0B2C6;        /* Muted secondary text */
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-dark-alt) 100%) !important;
-            background-attachment: fixed;
-            color: var(--text-light);
-            line-height: 1.6;
-        }
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-dark-alt) 100%) !important;
+        background-attachment: fixed;
+        color: var(--text-light);
+        line-height: 1.6;
+    }
 
-        /* Hero Banner Container - Full Bleed */
-        .hero-banner {
-            width: 100%;
-            background: var(--bg-dark);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-bottom: 1px solid var(--border-glow);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-        }
+    /* Hero Banner Container - Full Bleed */
+    .hero-banner {
+        width: 100%;
+        background: var(--bg-dark);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid var(--border-glow);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
 
-        .hero-banner img {
-            width: 100%;
-            max-width: 1200px;
-            height: auto;
-            display: block;
-        }
+    .hero-banner img {
+        width: 100%;
+        max-width: 1200px;
+        height: auto;
+        display: block;
+    }
 
-        .container {
-            max-width: 900px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
-        }
+    .container {
+        max-width: 960px; /* Slightly widened for better side-by-side card proportions */
+        margin: 3rem auto;
+        padding: 0 1.5rem;
+    }
 
-        h2 {
-            color: var(--primary);
-        }
+    h2 {
+        color: var(--primary);
+    }
 
-        .text-muted {
-            color: var(--text-muted);
-        }
+    .text-muted {
+        color: var(--text-muted);
+    }
 
+    /* Balanced 2x2 Grid Layout */
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
         .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: 1fr; /* Single column on mobile devices */
         }
+    }
 
-        .card {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--border-glow);
-            border-top: 4px solid var(--primary);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+    .card {
+        background: var(--card-bg);
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        border: 1px solid var(--border-glow);
+        border-top: 4px solid var(--primary);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 
-        .card h3 {
-            margin-top: 0;
-            color: var(--primary);
-        }
+    .card h3 {
+        margin-top: 0;
+        color: var(--primary);
+    }
 
-        .card p {
-            color: var(--text-muted);
-        }
+    .card p {
+        color: var(--text-muted);
+    }
 
-        .btn-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            margin-top: 1rem;
-        }
+    .btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-top: 1rem;
+    }
 
-        .btn {
-            display: inline-block;
-            text-align: center;
-            background-color: var(--primary);
-            color: #0B1D28;
-            padding: 0.65rem 1rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.2s ease;
-        }
+    .btn {
+        display: inline-block;
+        text-align: center;
+        background-color: var(--primary);
+        color: #0B1D28;
+        padding: 0.65rem 1rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: all 0.2s ease;
+    }
 
-        .btn:hover {
-            background-color: var(--primary-hover);
-        }
+    .btn:hover {
+        background-color: var(--primary-hover);
+    }
 
-        .btn-outline {
-            background-color: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
+    .btn-outline {
+        background-color: transparent;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+    }
 
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: #0B1D28;
-        }
+    .btn-outline:hover {
+        background-color: var(--primary);
+        color: #0B1D28;
+    }
 
-        footer {
-            margin-top: 4rem;
-            padding: 2rem;
-            background: rgba(11, 29, 40, 0.95);
-            border-top: 1px solid var(--border-glow);
-            text-align: center;
-        }
+    footer {
+        margin-top: 4rem;
+        padding: 2rem;
+        background: rgba(11, 29, 40, 0.95);
+        border-top: 1px solid var(--border-glow);
+        text-align: center;
+    }
 
-        .share-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Hero Banner -->
-    <div class="hero-banner">
-        <img src="image.jpg" alt="AICANWORK Header Banner">
-    </div>
-
-    <main class="container">
-        <h2>About This Portal</h2>
-        <p class="text-muted">Welcome to the official AICANWORK website. This portal is designed to provide quick access to essential tools, updates, and classroom material.</p>
-
-        <div class="grid">
-            <!-- Card: Project Overview -->
-            <div class="card">
-                <div>
-                    <h3>📚 Project Overview</h3>
-                    <p>Access key updates, modules, and journey relative to our current learning objectives.</p>
-                </div>
-            </div>
-
-            <!-- Card: Registration & Chatbot -->
-            <div class="card">
-                <div>
-                    <h3>📝 Registration & Assistant</h3>
-                    <p>Register for the program via Google Form or through our Messenger assistant.</p>
-                </div>
-                <div class="btn-group">
-                    <a href="https://forms.gle/XLvnSZC7r6mz8vZB7" target="_blank" class="btn">Register via Google Form</a>
-                    <a href="https://m.me/aiforjobseekers?ref=reg" target="_blank" class="btn btn-outline">Register via Chatbot</a>
-                </div>
-            </div>
-
-            <!-- Card: Google Classroom -->
-            <div class="card">
-                <div>
-                    <h3>📢 Classroom Integration</h3>
-                    <p>Join our official Google Classroom stream to access assignments, materials, and class announcements.</p>
-                </div>
-                <div class="btn-group">
-                    <a href="https://classroom.google.com/c/ODU1NjE1MzIzMzk1?cjc=goj7cthf" target="_blank" class="btn btn-outline">Join Google Classroom</a>
-                </div>
-            </div>
-
-            <!-- Card: Facebook Community -->
-            <div class="card">
-                <div>
-                    <h3>👥 Facebook Community</h3>
-                    <p>Connect with peers, share updates, and participate in discussions within our official Facebook group.</p>
-                </div>
-                <div class="btn-group">
-                    <a href="https://www.facebook.com/share/g/192bJT5kds/" target="_blank" class="btn btn-outline">Join FB Group</a>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <p><strong>Share this hub with your class:</strong></p>
-        <div class="share-section">
-            <g:sharetoclassroom url="https://aicanwork.vercel.app" size="32"></g:sharetoclassroom>
-        </div>
-    </footer>
-
-</body>
-</html>
+    .share-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+</style>
