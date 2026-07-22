@@ -8,12 +8,14 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <style>
         :root {
-            --primary: #2563eb;
-            --primary-hover: #1d4ed8;
-            --background: #f8fafc;
-            --surface: #ffffff;
-            --text: #0f172a;
-            --text-muted: #64748b;
+            /* Palette sampled directly from AICANWORK banner */
+            --primary: #F1A721;        /* Warm Gold/Orange from AI CAN WORK logo */
+            --primary-dark: #0D3B5C;   /* Deep Navy/Teal from banner text & background */
+            --primary-hover: #D98E0D;  /* Darker Gold for hover state */
+            --background: #F4F7F9;     /* Soft slate white */
+            --surface: #FFFFFF;        /* Crisp card background */
+            --text: #0B1D28;           /* Dark navy for readable text */
+            --text-muted: #526775;     /* Muted teal-gray */
         }
 
         body {
@@ -26,21 +28,24 @@
         }
 
         header {
-            background-color: var(--primary);
+            background-color: var(--primary-dark);
             color: white;
             padding: 3rem 1.5rem;
             text-align: center;
+            border-bottom: 5px solid var(--primary);
         }
 
         header h1 {
             margin: 0 0 0.5rem 0;
             font-size: 2.5rem;
+            color: var(--primary);
         }
 
         header p {
             margin: 0;
             font-size: 1.1rem;
-            opacity: 0.9;
+            opacity: 0.95;
+            color: #E2ECF3;
         }
 
         .container {
@@ -60,8 +65,8 @@
         .hero-image {
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            box-shadow: 0 10px 20px -3px rgba(13, 59, 92, 0.15);
         }
 
         .grid {
@@ -74,13 +79,14 @@
         .card {
             background: var(--surface);
             padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px -2px rgba(13, 59, 92, 0.08);
+            border-top: 3px solid var(--primary);
         }
 
         .card h3 {
             margin-top: 0;
-            color: var(--primary);
+            color: var(--primary-dark);
         }
 
         /* Button Styles */
@@ -95,26 +101,27 @@
             display: inline-block;
             text-align: center;
             background-color: var(--primary);
-            color: white;
-            padding: 0.6rem 1rem;
+            color: var(--primary-dark);
+            padding: 0.65rem 1rem;
             border-radius: 6px;
             text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.2s ease;
+            font-weight: 600;
+            transition: all 0.2s ease;
         }
 
         .btn:hover {
             background-color: var(--primary-hover);
+            transform: translateY(-1px);
         }
 
         .btn-outline {
             background-color: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
+            color: var(--primary-dark);
+            border: 2px solid var(--primary-dark);
         }
 
         .btn-outline:hover {
-            background-color: var(--primary);
+            background-color: var(--primary-dark);
             color: white;
         }
 
@@ -122,7 +129,7 @@
             margin-top: 4rem;
             padding: 2rem;
             background: var(--surface);
-            border-top: 1px solid #e2e8f0;
+            border-top: 1px solid #E2ECF3;
             text-align: center;
         }
 
