@@ -10,10 +10,12 @@
         :root {
             --primary: #F1A721;            /* Warm Gold/Orange */
             --primary-hover: #D98E0D;      /* Hover Gold */
-            --bg-dark: #0B1D28;           /* Deep dark blue sampled from banner */
-            --bg-dark-alt: #162A38;       /* Secondary dark gradient blue */
-            --card-bg: #132431;           /* Card background */
-            --border-glow: #243B4D;       /* Subtle card border */
+            --ai-cyan: #00F2FE;            /* AI Glow Accent */
+            --ai-blue: #0066FF;            /* Secondary Glow Accent */
+            --bg-dark: #07131D;           /* Deep Cyber Navy */
+            --bg-dark-alt: #0D1F2D;       /* Secondary Gradient Navy */
+            --card-bg: rgba(19, 36, 49, 0.75); /* Translucent Glass Card */
+            --border-glow: #1E374B;       /* Card border */
             --text-light: #FFFFFF;        /* Bright white text */
             --text-muted: #A0B2C6;        /* Muted secondary text */
         }
@@ -22,7 +24,14 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-dark-alt) 100%) !important;
+            background-color: var(--bg-dark);
+            /* Tech Grid Background overlay */
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(0, 242, 254, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 80% 50%, rgba(241, 167, 33, 0.05) 0%, transparent 50%),
+                linear-gradient(rgba(0, 242, 254, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 242, 254, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
             background-attachment: fixed;
             color: var(--text-light);
             line-height: 1.6;
@@ -31,7 +40,7 @@
         /* Hero Banner Container */
         .hero-banner {
             width: 100%;
-            background: var(--bg-dark);
+            background: transparent;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -44,8 +53,8 @@
             height: auto;
             display: block;
             border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--border-glow);
+            box-shadow: 0 8px 32px rgba(0, 242, 254, 0.15), 0 0 15px rgba(241, 167, 33, 0.1);
+            border: 1px solid rgba(0, 242, 254, 0.2);
         }
 
         .container {
@@ -56,6 +65,7 @@
 
         h2 {
             color: var(--primary);
+            text-shadow: 0 0 12px rgba(241, 167, 33, 0.2);
         }
 
         .text-muted {
@@ -65,11 +75,22 @@
         /* --- Program Details Section --- */
         .program-overview-box {
             background: var(--card-bg);
+            backdrop-filter: blur(10px);
             border: 1px solid var(--border-glow);
             border-radius: 12px;
             padding: 2rem;
             margin: 2rem 0;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-overview-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--ai-cyan), var(--primary), transparent);
         }
 
         .program-overview-box p.lead {
@@ -95,13 +116,14 @@
         }
 
         .partner-badge {
-            background: rgba(241, 167, 33, 0.1);
+            background: rgba(241, 167, 33, 0.08);
             color: var(--primary);
-            border: 1px solid var(--primary);
+            border: 1px solid rgba(241, 167, 33, 0.3);
             padding: 0.35rem 0.85rem;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
+            letter-spacing: 0.3px;
         }
 
         /* --- 5 AI Modules Grid --- */
@@ -114,6 +136,7 @@
             text-align: center;
             font-size: 1.5rem;
             margin-bottom: 2rem;
+            text-shadow: 0 0 10px rgba(241, 167, 33, 0.2);
         }
 
         .modules-grid {
@@ -136,18 +159,26 @@
 
         .module-card {
             background: var(--card-bg);
+            backdrop-filter: blur(8px);
             border: 1px solid var(--border-glow);
             border-radius: 10px;
             padding: 1.25rem;
             position: relative;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .module-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 242, 254, 0.4);
+            box-shadow: 0 8px 25px rgba(0, 242, 254, 0.15);
         }
 
         .module-badge {
-            width: 32px;
-            height: 32px;
-            background: var(--primary);
-            color: #0B1D28;
+            width: 34px;
+            height: 34px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+            color: #07131D;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -155,6 +186,7 @@
             font-weight: 800;
             font-size: 1rem;
             margin-bottom: 0.75rem;
+            box-shadow: 0 0 10px rgba(241, 167, 33, 0.4);
         }
 
         .module-card h4 {
@@ -200,11 +232,18 @@
 
         .use-case-card {
             background: var(--card-bg);
+            backdrop-filter: blur(8px);
             border: 1px solid var(--border-glow);
-            border-left: 4px solid var(--primary);
+            border-left: 4px solid var(--ai-cyan);
             border-radius: 10px;
             padding: 1.25rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .use-case-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 242, 254, 0.12);
         }
 
         .use-case-card h4 {
@@ -236,14 +275,22 @@
 
         .card {
             background: var(--card-bg);
+            backdrop-filter: blur(10px);
             padding: 1.5rem;
             border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
             border: 1px solid var(--border-glow);
             border-top: 4px solid var(--primary);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(241, 167, 33, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(241, 167, 33, 0.15);
         }
 
         .card h3 {
@@ -266,16 +313,18 @@
             display: inline-block;
             text-align: center;
             background-color: var(--primary);
-            color: #0B1D28;
+            color: #07131D;
             padding: 0.65rem 1rem;
             border-radius: 6px;
             text-decoration: none;
             font-weight: 700;
             transition: all 0.2s ease;
+            box-shadow: 0 0 10px rgba(241, 167, 33, 0.2);
         }
 
         .btn:hover {
             background-color: var(--primary-hover);
+            box-shadow: 0 0 15px rgba(241, 167, 33, 0.4);
         }
 
         .btn-outline {
@@ -286,13 +335,13 @@
 
         .btn-outline:hover {
             background-color: var(--primary);
-            color: #0B1D28;
+            color: #07131D;
         }
 
         footer {
             margin-top: 4rem;
             padding: 2rem;
-            background: rgba(11, 29, 40, 0.95);
+            background: rgba(7, 19, 29, 0.95);
             border-top: 1px solid var(--border-glow);
             text-align: center;
         }
