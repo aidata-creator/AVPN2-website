@@ -62,26 +62,119 @@
             color: var(--text-muted);
         }
 
-        /* Full-Width Banners Section */
-        .program-banner-container {
-            margin: 1.5rem 0;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        .program-banner-img {
-            width: 100%;
-            max-width: 960px;
-            height: auto;
-            border-radius: 12px;
+        /* --- Program Details Section (Text Version) --- */
+        .program-overview-box {
+            background: var(--card-bg);
             border: 1px solid var(--border-glow);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-            display: block;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
         }
 
-        /* Balanced Grid Layout */
+        .program-overview-box p.lead {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #FFFFFF;
+            margin-top: 0;
+        }
+
+        .partner-credits {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-glow);
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .partner-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .partner-badge {
+            background: rgba(241, 167, 33, 0.1);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* --- 5 AI Modules Grid (Text Version) --- */
+        .modules-section {
+            margin: 3rem 0;
+        }
+
+        .modules-section h3 {
+            color: var(--primary);
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        @media (max-width: 850px) {
+            .modules-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 550px) {
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .module-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            border-radius: 10px;
+            padding: 1.25rem;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .module-badge {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            color: #0B1D28;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .module-card h4 {
+            margin: 0 0 0.5rem 0;
+            color: #FFFFFF;
+            font-size: 1.05rem;
+        }
+
+        .module-card ul {
+            margin: 0;
+            padding-left: 1.2rem;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        .module-card li {
+            margin-bottom: 0.35rem;
+        }
+
+        /* --- Main 2x2 Resource Grid --- */
         .grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -178,21 +271,87 @@
         <h2>About This Portal</h2>
         <p class="text-muted">Welcome to the official AICANWORK website. This portal is designed to provide quick access to essential tools, updates, and classroom material.</p>
 
-        <!-- Program Banners Section -->
-        <div class="program-banner-container">
-            <!-- Partner Overview Banner -->
-            <img src="overview-info.jpg" alt="AI Can Work Program Details and Partners" class="program-banner-img">
+        <!-- 1. Text Version: Program Overview & Partners -->
+        <div class="program-overview-box">
+            <p class="lead"><span style="color: var(--primary);">AI Can Work!</span> is a program designed to equip <strong>service workers</strong> with essential AI skills that they need to stay competitive and productive in today’s rapidly changing world of work.</p>
             
-            <!-- Modules Graphic Banner -->
-            <img src="modules-info.jpg" alt="5 AI Modules That Make An Impact" class="program-banner-img">
+            <div class="partner-credits">
+                <p style="margin: 0 0 0.5rem 0;">This Artificial Intelligence Upskilling Program for Filipino Workers is part of the <strong>AI Opportunity Fund: Asia-Pacific</strong>, an initiative by the Asian Venture Philanthropy Network (AVPN) with support from Google.org and the Asian Development Bank. Hapinoy’s Trainors are certified by AI Singapore.</p>
+                
+                <div class="partner-tags">
+                    <span class="partner-badge">PH Training Provider: Hapinoy</span>
+                    <span class="partner-badge">Initiative by: AVPN</span>
+                    <span class="partner-badge">Support from: Google.org & ADB</span>
+                    <span class="partner-badge">Certified by: AI Singapore</span>
+                </div>
+            </div>
         </div>
 
+        <!-- 2. Text Version: 5 AI Modules -->
+        <div class="modules-section">
+            <h3>5 AI Modules That Make An Impact</h3>
+            <div class="modules-grid">
+                <!-- Module 1 -->
+                <div class="module-card">
+                    <div class="module-badge">1</div>
+                    <h4>Intro to AI</h4>
+                    <ul>
+                        <li>Fundamentals of AI</li>
+                        <li>Relevance of AI to your work</li>
+                        <li>Strategies in using AI for daily work</li>
+                    </ul>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="module-card">
+                    <div class="module-badge">2</div>
+                    <h4>Maximize Productivity</h4>
+                    <ul>
+                        <li>Generative AI (GenAI) tools</li>
+                        <li>Practical application of AI to work tasks</li>
+                    </ul>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="module-card">
+                    <div class="module-badge">3</div>
+                    <h4>Prompt Engineering</h4>
+                    <ul>
+                        <li>The art of prompt engineering</li>
+                        <li>AI outputs that boost productivity</li>
+                    </ul>
+                </div>
+
+                <!-- Module 4 -->
+                <div class="module-card">
+                    <div class="module-badge">4</div>
+                    <h4>Use AI Responsibly</h4>
+                    <ul>
+                        <li>Ethical use of AI</li>
+                        <li>AI biases and inaccuracies</li>
+                    </ul>
+                </div>
+
+                <!-- Module 5 -->
+                <div class="module-card">
+                    <div class="module-badge">5</div>
+                    <h4>Stay Ahead of the Curve</h4>
+                    <ul>
+                        <li>Future-proof your career</li>
+                        <li>Latest AI developments</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Actionable Resource Grid -->
+        <h2 style="margin-top: 3rem;">Quick Access Links</h2>
         <div class="grid">
             <!-- Card 1: Project Overview -->
             <div class="card">
                 <div>
                     <h3>📚 Project Overview</h3>
-                    <p>Designed to equip service workers with essential AI skills to stay competitive and productive in today's rapidly changing world of work.</p>
+                    <p>Access key updates, modules, and journey relative to our current learning objectives.</p>
                 </div>
             </div>
 
