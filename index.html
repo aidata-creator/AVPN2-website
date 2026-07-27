@@ -62,7 +62,7 @@
             color: var(--text-muted);
         }
 
-        /* --- Program Details Section (Text Version) --- */
+        /* --- Program Details Section --- */
         .program-overview-box {
             background: var(--card-bg);
             border: 1px solid var(--border-glow);
@@ -104,7 +104,7 @@
             font-weight: 600;
         }
 
-        /* --- 5 AI Modules Grid (Text Version) --- */
+        /* --- 5 AI Modules Grid --- */
         .modules-section {
             margin: 3rem 0;
         }
@@ -174,21 +174,15 @@
             margin-bottom: 0.35rem;
         }
 
-        /* --- Actionable Resource Grid (3 Cards Layout) --- */
+        /* --- Actionable Resource Grid (2x2 Layout) --- */
         .grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
             margin-top: 2rem;
         }
 
-        @media (max-width: 900px) {
-            .grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .grid {
                 grid-template-columns: 1fr;
             }
@@ -353,18 +347,29 @@
         <!-- Quick Access Links Section -->
         <h2 style="margin-top: 3.5rem;">Quick Access Links</h2>
         <div class="grid">
-            <!-- Card 1: Registration -->
+            <!-- Card 1: Student Registration -->
             <div class="card">
                 <div>
-                    <h3>📝 Registration</h3>
-                    <p>Register for the program directly via our Google Form.</p>
+                    <h3>📝 Student Registration</h3>
+                    <p>Are you a student or service worker looking to upskill? Register directly via our Google Form.</p>
                 </div>
                 <div class="btn-group">
-                    <a href="https://forms.gle/XLvnSZC7r6mz8vZB7" target="_blank" class="btn btn-outline">Register via Google Form</a>
+                    <a href="https://forms.gle/XLvnSZC7r6mz8vZB7" target="_blank" class="btn btn-outline">Registration via GForm</a>
                 </div>
             </div>
 
-            <!-- Card 2: Google Classroom -->
+            <!-- Card 2: Partner With Us -->
+            <div class="card">
+                <div>
+                    <h3>🤝 Partner With Us</h3>
+                    <p>Want to bring AI skills training to your workforce or team? Partner with us to train your organization.</p>
+                </div>
+                <div class="btn-group">
+                    <a href="https://forms.gle/XLvnSZC7r6mz8vZB7" target="_blank" class="btn btn-outline">Train Your Organization</a>
+                </div>
+            </div>
+
+            <!-- Card 3: Google Classroom -->
             <div class="card">
                 <div>
                     <h3>📢 Classroom Integration</h3>
@@ -375,7 +380,7 @@
                 </div>
             </div>
 
-            <!-- Card 3: Facebook Community -->
+            <!-- Card 4: Facebook Community -->
             <div class="card">
                 <div>
                     <h3>👥 Facebook Community</h3>
