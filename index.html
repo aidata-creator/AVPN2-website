@@ -28,7 +28,7 @@
             line-height: 1.6;
         }
 
-        /* Hero Banner Container - Resized & Centered */
+        /* Hero Banner Container */
         .hero-banner {
             width: 100%;
             background: var(--bg-dark);
@@ -40,7 +40,7 @@
 
         .hero-banner img {
             width: 100%;
-            max-width: 800px; /* Reduced width to make the image smaller */
+            max-width: 800px;
             height: auto;
             display: block;
             border-radius: 12px;
@@ -95,6 +95,15 @@
 
         .card p {
             color: var(--text-muted);
+        }
+
+        /* Program Info Graphic inside Card 1 */
+        .program-graphic {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 0.75rem;
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
         .btn-group {
@@ -160,18 +169,20 @@
         <p class="text-muted">Welcome to the official AICANWORK website. This portal is designed to provide quick access to essential tools, updates, and classroom material.</p>
 
         <div class="grid">
-            <!-- Card 1: Project Overview -->
+            <!-- Card 1: Project Overview with Infographic -->
             <div class="card">
                 <div>
                     <h3>📚 Project Overview</h3>
-                    <p>Access key updates, modules, and journey relative to our current learning objectives.</p>
+                    <p>Designed to equip service workers with essential AI skills to stay competitive and productive in today's rapidly changing world of work.</p>
+                    <!-- Infographic image named 'overview-info.jpg' -->
+                    <img src="overview-info.jpg" alt="AI Can Work Program Overview and Partners" class="program-graphic">
                 </div>
             </div>
 
             <!-- Card 2: Registration & Assistant -->
             <div class="card">
                 <div>
-                    <h3>📝 Registration</h3>
+                    <h3>📝 Registration & Assistant</h3>
                     <p>Register for the program via Google Form or through our Messenger assistant.</p>
                 </div>
                 <div class="btn-group">
@@ -207,7 +218,7 @@
     <footer>
         <p><strong>Share this hub with your class:</strong></p>
         <div class="share-section">
-            <g:sharetoclassroom url="https://aicanwork.vercel.app" size="32"></g:sharetoclassroom>
+            <g:sharetoclassroom url="https://aicanwork.ph" size="32"></g:sharetoclassroom>
         </div>
     </footer>
 
