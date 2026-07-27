@@ -181,18 +181,12 @@
 
         .use-cases-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 1.25rem;
             margin-top: 1.5rem;
         }
 
-        @media (max-width: 850px) {
-            .use-cases-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 550px) {
+        @media (max-width: 768px) {
             .use-cases-grid {
                 grid-template-columns: 1fr;
             }
@@ -393,22 +387,31 @@
         <!-- Real-World Use Cases Section -->
         <div class="use-cases-section">
             <h2>💡 Real-World Use Cases</h2>
-            <p class="text-muted">How AI skills empower service workers across different industries:</p>
+            <p class="text-muted">How AI skills empower employees and service workers across different roles:</p>
             
             <div class="use-cases-grid">
+                <!-- Employee Use Case -->
+                <div class="use-case-card">
+                    <h4>💼 Workplace Employees</h4>
+                    <p>Automate routine reports, draft professional work presentations, analyze data quickly, and generate creative ideas to boost workplace efficiency.</p>
+                </div>
+
+                <!-- Customer Service Use Case -->
                 <div class="use-case-card">
                     <h4>🎧 Customer Service & BPO</h4>
-                    <p>Draft quick, personalized email responses, translate messages instantly, and generate empathetic replies to customer queries.</p>
+                    <p>Draft quick, personalized email responses, translate customer inquiries instantly, and generate empathetic replies for better satisfaction.</p>
                 </div>
 
+                <!-- Retail Use Case -->
                 <div class="use-case-card">
                     <h4>🏪 Retail & Micro-Businesses</h4>
-                    <p>Create social media captions, design promotional materials, and draft product descriptions to boost sales and customer engagement.</p>
+                    <p>Create engaging social media captions, design promotional materials, and write persuasive product descriptions to increase sales.</p>
                 </div>
 
+                <!-- Admin Use Case -->
                 <div class="use-case-card">
                     <h4>📋 Administrative Support</h4>
-                    <p>Summarize long documents and meeting notes, organize schedules, and compose professional emails in seconds.</p>
+                    <p>Summarize long documents and meeting notes, organize team schedules, and draft clear professional communications in seconds.</p>
                 </div>
             </div>
         </div>
