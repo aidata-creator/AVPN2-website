@@ -174,15 +174,21 @@
             margin-bottom: 0.35rem;
         }
 
-        /* --- Main 2x2 Resource Grid --- */
+        /* --- Actionable Resource Grid (3 Cards Layout) --- */
         .grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
             margin-top: 2rem;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
             .grid {
                 grid-template-columns: 1fr;
             }
@@ -271,7 +277,7 @@
         <h2>About This Portal</h2>
         <p class="text-muted">Welcome to the official AICANWORK website. This portal is designed to provide quick access to essential tools, updates, and classroom material.</p>
 
-        <!-- 1. Text Version: Program Overview & Partners -->
+        <!-- Program Overview & Partners -->
         <div class="program-overview-box">
             <p class="lead"><span style="color: var(--primary);">AI Can Work!</span> is a program designed to equip <strong>service workers</strong> with essential AI skills that they need to stay competitive and productive in today’s rapidly changing world of work.</p>
             
@@ -287,7 +293,7 @@
             </div>
         </div>
 
-        <!-- 2. Text Version: 5 AI Modules -->
+        <!-- 5 AI Modules Section -->
         <div class="modules-section">
             <h3>5 AI Modules That Make An Impact</h3>
             <div class="modules-grid">
@@ -344,18 +350,10 @@
             </div>
         </div>
 
-        <!-- Actionable Resource Grid -->
-        <h2 style="margin-top: 3rem;">Quick Access Links</h2>
+        <!-- Quick Access Links Section -->
+        <h2 style="margin-top: 3.5rem;">Quick Access Links</h2>
         <div class="grid">
-            <!-- Card 1: Project Overview -->
-            <div class="card">
-                <div>
-                    <h3>📚 Project Overview</h3>
-                    <p>Access key updates, modules, and journey relative to our current learning objectives.</p>
-                </div>
-            </div>
-
-            <!-- Card 2: Registration & Assistant -->
+            <!-- Card 1: Registration & Assistant -->
             <div class="card">
                 <div>
                     <h3>📝 Registration & Assistant</h3>
@@ -367,7 +365,7 @@
                 </div>
             </div>
 
-            <!-- Card 3: Google Classroom -->
+            <!-- Card 2: Google Classroom -->
             <div class="card">
                 <div>
                     <h3>📢 Classroom Integration</h3>
@@ -378,7 +376,7 @@
                 </div>
             </div>
 
-            <!-- Card 4: Facebook Community -->
+            <!-- Card 3: Facebook Community -->
             <div class="card">
                 <div>
                     <h3>👥 Facebook Community</h3>
