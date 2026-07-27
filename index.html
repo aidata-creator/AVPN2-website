@@ -62,6 +62,23 @@
             color: var(--text-muted);
         }
 
+        /* Dedicated Program Overview Banner (Option B) */
+        .program-banner-container {
+            margin: 2rem 0 2.5rem 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .program-banner-img {
+            width: 100%;
+            max-width: 960px;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            display: block;
+        }
+
         /* Balanced Grid Layout */
         .grid {
             display: grid;
@@ -95,15 +112,6 @@
 
         .card p {
             color: var(--text-muted);
-        }
-
-        /* Program Info Graphic inside Card 1 */
-        .program-graphic {
-            width: 100%;
-            border-radius: 8px;
-            margin-top: 0.75rem;
-            border: 1px solid var(--border-glow);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
         .btn-group {
@@ -168,14 +176,17 @@
         <h2>About This Portal</h2>
         <p class="text-muted">Welcome to the official AICANWORK website. This portal is designed to provide quick access to essential tools, updates, and classroom material.</p>
 
+        <!-- Option B: Full-Width Program Overview Banner -->
+        <div class="program-banner-container">
+            <img src="overview-info.jpg" alt="AI Can Work Program Details and Partners" class="program-banner-img">
+        </div>
+
         <div class="grid">
-            <!-- Card 1: Project Overview with Infographic -->
+            <!-- Card 1: Project Overview -->
             <div class="card">
                 <div>
                     <h3>📚 Project Overview</h3>
-                    <p>Designed to equip service workers with essential AI skills to stay competitive and productive in today's rapidly changing world of work.</p>
-                    <!-- Infographic image named 'overview-info.jpg' -->
-                    <img src="overview-info.jpg" alt="AI Can Work Program Overview and Partners" class="program-graphic">
+                    <p>Access key updates, modules, and journey relative to our current learning objectives.</p>
                 </div>
             </div>
 
